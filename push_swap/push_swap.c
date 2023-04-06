@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:36:08 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/03/19 14:57:14 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/06 21:20:11 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,61 +14,28 @@
 
 int	main(int ac, char **av)
 {
-	t_mylist list;
-	int		i;
-	int		s;
-	char	**split;
+	t_mylist stack;
 
-	check_input(ac, av);
-	
-	list.a = malloc(sizeof(int) * ac);
-	list.b = malloc(sizeof(int) * ac);
-	
-	/////////////////////////// Fill a ////////////////////////////
-	
-	list.top = -1;
-	i = 1;
-	while (i < ac)
-	{
-		split = ft_split(av[i], ' ');
-		s = 0;
-		while (split[s])
-		{
-			list.a[++list.top] = ft_atoi(split[s]);
-			s++;
-		}
-		i++;
-	}
-	if (list.top == -1)
-		print_error();
+	if (ac < 2)
+		exit(0);
 		
-	/////////////////////////// Fill b /////////////////////////////
+	stack.a = malloc(sizeof(int) * num_of_args(ac, av));
+	stack.b = malloc(sizeof(int) * num_of_args(ac, av));
+	stack.tmp = malloc(sizeof(int) * num_of_args(ac, av));
 	
-	list.b[0] = 2;
-    list.b[1] = 3;
-    list.b[2] = 1;
+	memset(stack.a, 0, sizeof(int) * num_of_args(ac, av));
+	memset(stack.b, 0, sizeof(int) * num_of_args(ac, av));
+	memset(stack.tmp, 0, sizeof(int) * num_of_args(ac, av));
 	
-	////////////////////////// Make rule ///////////////////////////
-							   sort(list);
-	////////////////////////////////////////////////////////////////
-	
-	printf("\na : "); ///////// Print a ////////////////////////////
-	
-	i = 0;	
-	while (list.a[i] != '\0')
-	{
-		printf("[%d] ", list.a[i]);
-		i++;
-	}
-		
-	printf("\n\nb : ");	/////// Print b /////////////////////////////
-	
-	i = 0;	
-	while (list.b[i] != '\0')
-	{
-		printf("[%d] ", list.b[i]);
-		i++;
-	}
+	fill_stack(&stack, ac, av);
 
-	printf("\n\n");	////////////////////////////////////////////////
+	if (stack.end_a > 100)
+		range(&stack, 35);
+	else if (stack.end_a >= 15 && stack.end_a <= 100)
+		range(&stack, 15);
+	else if (stack.end_a == 2)
+		little_sort(&stack);	
+	else
+		sort(&stack);
+	while(1);
 }

@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 22:00:45 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/03/18 11:11:05 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/03/31 21:56:41 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	check_if_empty(int ac, char **data)
 				c++;
 			i++;
 		}
-		if (data[0] == '\0' || c == 0)
+		if (data[1][0] == '\0' || c == 0)
 			print_error();
 		j++;
 	}
@@ -78,17 +78,18 @@ void	check_min_max(int ac, char **data)
 	}
 }
 
-void	check_if_double(int ac, char **data)
+void	check_if_double(t_mylist *list, int *arr)
 {
 	int	i;
 	int	j;
-
-	j = 1;
-	while (j < ac)
+	
+	i = 0;
+	j = 0;
+	while (j <= list->end_a)
 	{
 		i = j;
-		while (++i < ac)
-			if (ft_atoi(data[j]) == ft_atoi(data[i]))
+		while (++i <= list->end_a)
+			if (arr[j] == arr[i])
 				print_error();
 		j++;
 	}
@@ -99,5 +100,4 @@ void	check_input(int ac, char **data)
 	check_if_empty(ac, data);
 	check_if_only_digit(ac, data);
 	check_min_max(ac, data);
-	check_if_double(ac, data);
 }

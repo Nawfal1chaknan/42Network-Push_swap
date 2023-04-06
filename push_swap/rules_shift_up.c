@@ -6,65 +6,53 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:19:09 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/03/19 14:47:17 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/05 20:29:30 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-void	ra(t_mylist list)
+void	ra(t_mylist *stack, char *s)
 {
-	int	top;
-	int	*tmp_arr;
-	int	i;
-	int	j;
-
-	if (arrlen(list.a) >= 2)
-	{
-		printf("* ra *\n");
-		top = arrlen(list.a) - 1;
-		tmp_arr = malloc(sizeof(list.a));
-		tmp_arr[0] = list.a[top];
-		list.a[top] = '\0';
-		i = 0;
-		j = 1;
-		while (list.a[i] != '\0')
-			tmp_arr[j++] = list.a[i++];
-		i = 0;
-		j = 0;
-		while (tmp_arr[j] != '\0')
-			list.a[i++] = tmp_arr[j++];
+	int tmp;
+	int i;
+	
+	tmp = stack->a[0];
+	i = 0;
+	if (stack->end_a > 0)
+    {
+		printf("%s", s);
+		while(i < stack->end_a)
+		{
+			stack->a[i] = stack->a[i + 1];
+			i++;
+		}
+		stack->a[i] = tmp;
 	}
 }
 
-void	rb(t_mylist list)
+void	rb(t_mylist *stack, char *s)
 {
-	int	top;
-	int	*tmp_arr;
-	int	i;
-	int	j;
-
-	if (arrlen(list.b) >= 2)
-	{
-		printf("* rb *\n");
-		top = arrlen(list.b) - 1;
-		tmp_arr = malloc(sizeof(list.b));
-		tmp_arr[0] = list.b[top];
-		list.b[top] = '\0';
-		i = 0;
-		j = 1;
-		while (list.b[i] != '\0')
-			tmp_arr[j++] = list.b[i++];
-		i = 0;
-		j = 0;
-		while (tmp_arr[j] != '\0')
-			list.b[i++] = tmp_arr[j++];
+	int tmp;
+	int i;
+	
+	tmp = stack->b[0];
+	i = 0;
+	if (stack->end_b > 0)
+    {
+		printf("%s", s);
+		while(i < stack->end_b)
+		{
+			stack->b[i] = stack->b[i + 1];
+			i++;
+		}
+		stack->b[i] = tmp;
 	}
 }
 
-void	rr(t_mylist list)
+void	rr(t_mylist *stack)
 {
-	printf("* rr *\n");
-	ra(list);
-	rb(list);
+	printf("rr\n");
+	ra(stack, "");
+	rb(stack, "");
 }

@@ -6,38 +6,58 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:15:49 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/03/19 14:45:33 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/03/31 21:58:02 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-void	pa(t_mylist list)
+void	pa(t_mylist *stack)
 {
-	int	top_a;
-	int	top_b;
+	int i;
 
-	if (list.b[0] != '\0')
+	if (stack->end_b >= 0)
 	{
-		printf("* pa *\n");
-		top_a = arrlen(list.a);
-		top_b = arrlen(list.b) - 1;
-		list.a[top_a] = list.b[top_b];
-		list.b[top_b] = 0;
+		printf("pa\n");
+		stack->end_a++;
+		i = 0;
+		while(i < stack->end_a)
+		{
+			stack->a[stack->end_a - i] = stack->a[stack->end_a - 1 - i];
+			i++;
+		}
+		stack->a[0] = stack->b[0];
+		i = 0;
+		while(i < stack->end_b)
+		{
+			stack->b[i] = stack->b[i + 1];
+			i++;
+		}
+		stack->end_b--;
 	}
 }
 
-void	pb(t_mylist list)
+void	pb(t_mylist *stack)
 {
-	int	top_b;
-	int	top_a;
+	int i;
 
-	if (list.a[0] != '\0')
+	if (stack->end_a >= 0)
 	{
-		printf("* pb *\n");
-		top_b = arrlen(list.b);
-		top_a = arrlen(list.a) - 1;
-		list.b[top_b] = list.a[top_a];
-		list.a[top_a] = 0;
+		printf("pb\n");
+		stack->end_b++;
+		i = 0;
+		while(i < stack->end_b)
+		{
+			stack->b[stack->end_b - i] = stack->b[stack->end_b - 1 - i];
+			i++;
+		}
+		stack->b[0] = stack->a[0];
+		i = 0;
+		while(i < stack->end_a)
+		{
+			stack->a[i] = stack->a[i + 1];
+			i++;
+		}
+		stack->end_a--;
 	}
 }

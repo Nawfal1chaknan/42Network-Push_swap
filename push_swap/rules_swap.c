@@ -6,45 +6,41 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:17:22 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/03/19 14:47:57 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/03/31 21:58:48 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-void	sa(t_mylist list)
+void	sa(t_mylist *stack, char *s)
 {
 	int	swap;
-	int	top;
 
-	if (arrlen(list.a) >= 2)
+	if (stack->end_a > 0)
 	{
-		printf("* sa *\n");
-		top = arrlen(list.a) - 1;
-		swap = list.a[top];
-		list.a[top] = list.a[top - 1];
-		list.a[top - 1] = swap;
+		printf("%s", s);
+		swap = stack->a[0];
+		stack->a[0] = stack->a[1];
+		stack->a[1] = swap;
 	}
 }
 
-void	sb(t_mylist list)
+void	sb(t_mylist *stack, char *s)
 {
 	int	swap;
-	int	top;
 
-	if (arrlen(list.b) >= 2)
+	if (stack->end_b > 0)
 	{
-		printf("* sb *\n");
-		top = arrlen(list.b) - 1;
-		swap = list.b[top];
-		list.b[top] = list.b[top - 1];
-		list.b[top - 1] = swap;
+		printf("%s", s);
+		swap = stack->b[0];
+		stack->b[0] = stack->b[1];
+		stack->b[1] = swap;
 	}
 }
 
-void	ss(t_mylist list)
+void	ss(t_mylist *stack)
 {
-	printf("* ss *\n");
-	sa(list);
-	sb(list);
+	printf("ss\n");
+	sa(stack, "");
+	sb(stack, "");
 }

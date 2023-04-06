@@ -6,59 +6,53 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:20:29 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/03/19 14:46:37 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/03/31 21:58:17 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-void	rra(t_mylist list)
+void	rra(t_mylist *stack, char *s)
 {
-	int	*tmp_arr;
-	int	i;
-	int	j;
-
-	if (arrlen(list.a) >= 2)
+	int tmp;
+	int i;
+	
+	tmp = stack->a[stack->end_a];
+	i = 0;
+	if (stack->end_a > 0)
 	{
-		printf("* rra *\n");
-		tmp_arr = malloc(sizeof(list.a));
-		i = 1;
-		j = 0;
-		while (list.a[i] != '\0')
-			tmp_arr[j++] = list.a[i++];
-		tmp_arr[j] = list.a[0];
-		i = 0;
-		j = 0;
-		while (tmp_arr[j] != '\0')
-			list.a[i++] = tmp_arr[j++];
+		printf("%s", s);
+		while(i < stack->end_a)
+		{
+			stack->a[stack->end_a - i] = stack->a[stack->end_a - 1 - i];
+			i++;
+		}
+		stack->a[0] = tmp;
 	}
 }
 
-void	rrb(t_mylist list)
+void	rrb(t_mylist *stack, char *s)
 {
-	int	*tmp_arr;
-	int	i;
-	int	j;
-
-	if (arrlen(list.b) >= 2)
+	int tmp;
+	int i;
+	
+	tmp = stack->b[stack->end_b];
+	i = 0;
+	if (stack->end_b > 0)
 	{
-		printf("* rrb *\n");
-		tmp_arr = malloc(sizeof(list.b));
-		i = 1;
-		j = 0;
-		while (list.b[i] != '\0')
-			tmp_arr[j++] = list.b[i++];
-		tmp_arr[j] = list.b[0];
-		i = 0;
-		j = 0;
-		while (tmp_arr[j] != '\0')
-			list.b[i++] = tmp_arr[j++];
+		printf("%s", s);
+		while(i < stack->end_b)
+		{
+			stack->b[stack->end_b - i] = stack->b[stack->end_b - 1 - i];
+			i++;
+		}
+		stack->b[0] = tmp;
 	}
 }
 
-void	rrr(t_mylist list)
+void	rrr(t_mylist *stack)
 {
-	printf("* rrr *\n");
-	rra(list);
-	rrb(list);
+	printf("rrr\n");
+	rra(stack, "");
+	rrb(stack, "");
 }
