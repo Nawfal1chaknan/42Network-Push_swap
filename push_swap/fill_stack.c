@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 22:17:11 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/05 22:24:03 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/08 01:30:02 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	fill_stack(t_mylist *stack, int ac, char **av)
 {
-	int 	i;
+	int		i;
 	int		s;
 	char	**split;
-	
-	check_input(ac, av);
+
+	check_input(stack, ac, av);
 	stack->end_a = -1;
 	stack->end_b = -1;
 	stack->end_tmp = -1;
@@ -36,7 +36,7 @@ void	fill_stack(t_mylist *stack, int ac, char **av)
 		i++;
 	}
 	if (stack->end_a == -1)
-		print_error();
+		print_error(stack);
 	check_if_double(stack, stack->a);
 	sort_tmp(stack, stack->tmp, stack->end_tmp);
 }

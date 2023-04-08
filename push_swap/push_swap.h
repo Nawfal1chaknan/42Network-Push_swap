@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:56:56 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/05 23:45:27 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/08 01:28:34 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ typedef struct list
 	int	*tmp;
 	int	end_a;
 	int	end_b;
-	int end_tmp;
+	int	end_tmp;
 }	t_mylist;
 
-void	check_input(int ac, char **data);
+void	check_input(t_mylist *stack, int ac, char **data);
 void	check_if_double(t_mylist *list, int *arr);
 int		num_of_args(int ac, char **str);
-void	print_error(void);
+void	print_error(t_mylist *stack);
 int		check_if_sorted(t_mylist *list, int *array);
 void	sort(t_mylist *list);
 void	little_sort(t_mylist *stack);

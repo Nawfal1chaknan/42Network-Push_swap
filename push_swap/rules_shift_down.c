@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:20:29 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/03/31 21:58:17 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/07 18:19:37 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	rra(t_mylist *stack, char *s)
 {
-	int tmp;
-	int i;
-	
+	int	tmp;
+	int	i;
+
 	tmp = stack->a[stack->end_a];
 	i = 0;
 	if (stack->end_a > 0)
 	{
 		printf("%s", s);
-		while(i < stack->end_a)
+		while (i < stack->end_a)
 		{
 			stack->a[stack->end_a - i] = stack->a[stack->end_a - 1 - i];
 			i++;
@@ -33,15 +33,15 @@ void	rra(t_mylist *stack, char *s)
 
 void	rrb(t_mylist *stack, char *s)
 {
-	int tmp;
-	int i;
-	
+	int	tmp;
+	int	i;
+
 	tmp = stack->b[stack->end_b];
 	i = 0;
 	if (stack->end_b > 0)
 	{
 		printf("%s", s);
-		while(i < stack->end_b)
+		while (i < stack->end_b)
 		{
 			stack->b[stack->end_b - i] = stack->b[stack->end_b - 1 - i];
 			i++;

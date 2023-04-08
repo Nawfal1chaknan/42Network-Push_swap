@@ -6,13 +6,13 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 22:00:45 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/03/31 21:56:41 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/08 01:27:37 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-void	check_if_empty(int ac, char **data)
+void	check_if_empty(t_mylist *stack, int ac, char **data)
 {
 	int	i;
 	int	j;
@@ -30,12 +30,12 @@ void	check_if_empty(int ac, char **data)
 			i++;
 		}
 		if (data[1][0] == '\0' || c == 0)
-			print_error();
+			print_error(stack);
 		j++;
 	}
 }
 
-void	check_if_only_digit(int ac, char **data)
+void	check_if_only_digit(t_mylist *stack, int ac, char **data)
 {
 	int	i;
 	int	j;
@@ -56,14 +56,14 @@ void	check_if_only_digit(int ac, char **data)
 					(!ft_isdigit(after) || ft_isdigit(before)))
 				|| (data[j][i] == '+' &&
 					(!ft_isdigit(after) || ft_isdigit(before))))
-				print_error();
+				print_error(stack);
 			i++;
 		}
 		j++;
 	}
 }
 
-void	check_min_max(int ac, char **data)
+void	check_min_max(t_mylist *stack, int ac, char **data)
 {
 	int	j;
 
@@ -72,32 +72,32 @@ void	check_min_max(int ac, char **data)
 	{
 		if (ft_atoi(data[j]) > 2147483647 || ft_atoi(data[j]) < -2147483648)
 		{
-			print_error();
+			print_error(stack);
 		}
 		j++;
 	}
 }
 
-void	check_if_double(t_mylist *list, int *arr)
+void	check_if_double(t_mylist *stack, int *arr)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	j = 0;
-	while (j <= list->end_a)
+	while (j <= stack->end_a)
 	{
 		i = j;
-		while (++i <= list->end_a)
+		while (++i <= stack->end_a)
 			if (arr[j] == arr[i])
-				print_error();
+				print_error(stack);
 		j++;
 	}
 }
 
-void	check_input(int ac, char **data)
+void	check_input(t_mylist *stack, int ac, char **data)
 {
-	check_if_empty(ac, data);
-	check_if_only_digit(ac, data);
-	check_min_max(ac, data);
+	check_if_empty(stack, ac, data);
+	check_if_only_digit(stack, ac, data);
+	check_min_max(stack, ac, data);
 }
