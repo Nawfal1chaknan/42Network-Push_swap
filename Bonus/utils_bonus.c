@@ -17,7 +17,6 @@ void	print_error(t_bonuslist *stack)
 	ft_printf("Error\n");
 	free(stack->a);
 	free(stack->b);
-	free(stack->tmp);
 	exit(1);
 }
 

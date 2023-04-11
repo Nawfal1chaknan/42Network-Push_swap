@@ -24,10 +24,8 @@ typedef struct list
 {
 	int	*a;
 	int	*b;
-	int	*tmp;
 	int	end_a;
 	int	end_b;
-	int	end_tmp;
 }	t_bonuslist;
 
 int		num_of_args(int ac, char **str);

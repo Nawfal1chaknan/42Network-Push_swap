@@ -66,6 +66,6 @@ int	main(int ac, char **av)
 	else if (!check_if_sorted(&stack, stack.a) || stack.end_b != -1)
 		printf("KO\n");
 	free(stack.a);
-	free(stack.b);
-	while(1);
+	free(stack.b); //helloooo
+	// while(1);
 }
