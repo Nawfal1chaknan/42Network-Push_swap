@@ -60,12 +60,11 @@ int	main(int ac, char **av)
 		free(str);
 		str = get_next_line(0);
     }
-	free(str);
+	
 	if (check_if_sorted(&stack, stack.a) && stack.end_b == -1)
 		printf("OK\n");
 	else if (!check_if_sorted(&stack, stack.a) || stack.end_b != -1)
 		printf("KO\n");
 	free(stack.a);
-	free(stack.b); //helloooo
-	// while(1);
+	free(stack.b);
 }
