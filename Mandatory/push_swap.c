@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:36:08 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/12 00:59:39 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:14:37 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	main(int ac, char **av)
 	ft_memset(stack.b, 0, sizeof(int) * num_of_args(ac, av));
 	ft_memset(stack.tmp, 0, sizeof(int) * num_of_args(ac, av));
 	fill_stack(&stack, ac, av);
-
 	if (stack.end_a > 100)
 		range(&stack, 35);
 	else if (stack.end_a >= 15 && stack.end_a <= 100)

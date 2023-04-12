@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 22:17:11 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/12 00:59:24 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:14:25 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	fill_stack(t_mylist *stack, int ac, char **av)
 			stack->tmp[++stack->end_tmp] = ft_atoi(split[s]);
 		}
 		i++;
-	free_split(split);
+		free_split(split);
 	}
 	if (stack->end_a == -1)
 		print_error(stack);

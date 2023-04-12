@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 21:44:50 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/11 21:48:39 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:19:51 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,32 @@ int	check_if_sorted(t_bonuslist *list, int *array)
 		i++;
 	}
 	return (1);
+}
+
+void	apply_rule(t_bonuslist	*stack, char *str)
+{
+	if (ft_strncmp(str, "pa\n", 3) == 0)
+		pa(stack);
+	else if (ft_strncmp(str, "pb\n", 3) == 0)
+		pb(stack);
+	else if (ft_strncmp(str, "sa\n", 3) == 0)
+		sa(stack);
+	else if (ft_strncmp(str, "sb\n", 3) == 0)
+		sb(stack);
+	else if (ft_strncmp(str, "ra\n", 3) == 0)
+		ra(stack);
+	else if (ft_strncmp(str, "rb\n", 3) == 0)
+		rb(stack);
+	else if (ft_strncmp(str, "ss\n", 3) == 0)
+		ss(stack);
+	else if (ft_strncmp(str, "rr\n", 3) == 0)
+		rr(stack);
+	else if (ft_strncmp(str, "rra\n", 4) == 0)
+		rra(stack);
+	else if (ft_strncmp(str, "rrb\n", 4) == 0)
+		rrb(stack);
+	else if (ft_strncmp(str, "rrr\n", 4) == 0)
+		rrr(stack);
+	else
+		print_error(stack);
 }

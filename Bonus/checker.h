@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 22:06:53 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/11 21:22:13 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:17:22 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	fill_stack(t_bonuslist *stack, int ac, char **av);
 void	check_input(t_bonuslist *stack, int ac, char **data);
 void	check_if_double(t_bonuslist *list, int *arr);
 int		check_if_sorted(t_bonuslist *list, int *array);
+void	apply_rule(t_bonuslist	*stack, char *str);
 
 // Libft :
 long	ft_atoi(char *str);

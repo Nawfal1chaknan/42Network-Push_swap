@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 22:17:11 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/12 00:57:57 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:11:56 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	fill_stack(t_bonuslist *stack, int ac, char **av)
 			stack->a[++stack->end_a] = ft_atoi(split[s]);
 		}
 		i++;
-	free_split(split);
+		free_split(split);
 	}
 	check_if_double(stack, stack->a);
 }
