@@ -97,5 +97,8 @@ void	apply_rule(t_bonuslist	*stack, char *str)
 	else if (ft_strncmp(str, "rrr\n", 4) == 0)
 		rrr(stack);
 	else
+	{
+		free(str);
 		print_error(stack);
+	}
 }
