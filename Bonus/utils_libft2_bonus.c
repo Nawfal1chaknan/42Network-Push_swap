@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 22:26:27 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/11 22:21:49 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/12 23:34:55 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,12 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	}
 	return (0);
+}
+
+void	print_error(t_bonuslist *stack)
+{
+	write(2, "Error\n", 6);
+	free(stack->a);
+	free(stack->b);
+	exit(1);
 }

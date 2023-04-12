@@ -6,19 +6,11 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 21:44:50 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/12 18:35:06 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/12 23:35:27 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-void	print_error(t_bonuslist *stack)
-{
-	write(2,"Error\n",6);
-	free(stack->a);
-	free(stack->b);
-	exit(1);
-}
 
 int	count_inputs(char *str)
 {
@@ -72,6 +64,15 @@ int	check_if_sorted(t_bonuslist *list, int *array)
 	return (1);
 }
 
+void	wrong_rule(t_bonuslist *stack, char *str)
+{
+	write(2, "Error\n", 6);
+	free(stack->a);
+	free(stack->b);
+	free(str);
+	exit(1);
+}
+
 void	apply_rule(t_bonuslist	*stack, char *str)
 {
 	if (ft_strncmp(str, "pa\n", 3) == 0)
@@ -97,8 +98,5 @@ void	apply_rule(t_bonuslist	*stack, char *str)
 	else if (ft_strncmp(str, "rrr\n", 4) == 0)
 		rrr(stack);
 	else
-	{
-		free(str);
-		print_error(stack);
-	}
+		wrong_rule(stack, str);
 }
