@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:56:56 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/11 22:17:06 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/13 22:40:25 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		num_of_args(int ac, char **str);
 void	print_error(t_mylist *stack);
 void	fill_stack(t_mylist *stack, int ac, char **av);
 void	check_input(t_mylist *stack, int ac, char **data);
+int		check_max(char *str);
 void	check_if_double(t_mylist *list, int *arr);
 int		check_if_sorted(t_mylist *list, int *array);
 int		find_big(t_mylist *stack);

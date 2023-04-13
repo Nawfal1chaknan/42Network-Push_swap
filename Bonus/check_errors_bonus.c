@@ -70,10 +70,10 @@ void	check_min_max(t_bonuslist *stack, int ac, char **data)
 	j = 1;
 	while (j < ac)
 	{
-		if (ft_atoi(data[j]) > 2147483647 || ft_atoi(data[j]) < -2147483648)
-		{
+		if (check_max(data[j]) > 10)
 			print_error(stack);
-		}
+		if (ft_atoi(data[j]) > 2147483647 || ft_atoi(data[j]) < -2147483648)
+			print_error(stack);
 		j++;
 	}
 }

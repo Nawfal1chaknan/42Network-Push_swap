@@ -32,6 +32,7 @@ int		num_of_args(int ac, char **str);
 void	print_error(t_bonuslist *stack);
 void	fill_stack(t_bonuslist *stack, int ac, char **av);
 void	check_input(t_bonuslist *stack, int ac, char **data);
+int		check_max(char *str);
 void	check_if_double(t_bonuslist *list, int *arr);
 int		check_if_sorted(t_bonuslist *list, int *array);
 void	apply_rule(t_bonuslist	*stack, char *str);

@@ -67,6 +67,30 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
+int	check_max(char *str)
+{
+	size_t	i;
+	int		check;
+	int		count;
+
+	i = 0;
+	check = 0;
+	count = 0;
+	while (i < ft_strlen(str))
+	{
+		while (i < ft_strlen(str) && check == 0)
+		{
+			if (str[i] == '0' || str[i] == '+' || str[i] == '-')
+				i++;
+			else
+				check = 1;
+		}
+		count++;
+		i++;
+	}
+	return (count);
+}
+
 void	print_error(t_bonuslist *stack)
 {
 	write(2, "Error\n", 6);

@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 21:44:50 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/12 18:33:33 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/13 22:53:06 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_error(t_mylist *stack)
 {
-	write(2,"Error\n",6);
+	write(2, "Error\n", 6);
 	free(stack->a);
 	free(stack->b);
 	free(stack->tmp);
@@ -55,6 +55,30 @@ int	num_of_args(int ac, char **str)
 	{
 		count = count + count_inputs(str[j]);
 		j++;
+	}
+	return (count);
+}
+
+int	check_max(char *str)
+{
+	size_t	i;
+	int		check;
+	int		count;
+
+	i = 0;
+	check = 0;
+	count = 0;
+	while (i < ft_strlen(str))
+	{
+		while (i < ft_strlen(str) && check == 0)
+		{
+			if (str[i] == '0' || str[i] == '+' || str[i] == '-')
+				i++;
+			else
+				check = 1;
+		}
+		count++;
+		i++;
 	}
 	return (count);
 }
