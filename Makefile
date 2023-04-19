@@ -2,7 +2,7 @@ NAME = push_swap
 
 BONUS = checker
 
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror
 
 GNL = Bonus/get_next_line/get_next_line.c Bonus/get_next_line/get_next_line_utils.c
 
@@ -13,7 +13,7 @@ FILES = Mandatory/push_swap.c Mandatory/check_errors.c Mandatory/utils.c Mandato
 		Mandatory/range.c Mandatory/sort.c Mandatory/little_sort.c
 
 BFILES = $(GNL) Bonus/checker.c Bonus/check_errors_bonus.c Bonus/fill_stack_bonus.c \
-		Bonus/utils_bonus.c Bonus/utils_libft_bonus.c Bonus/utils_libft2_bonus.c \
+		Bonus/utils_bonus.c Bonus/utils_bonus2.c Bonus/utils_libft_bonus.c Bonus/utils_libft2_bonus.c \
 		Bonus/rules_push_bonus.c Bonus/rules_swap_bonus.c Bonus/rules_shift_up_bonus.c Bonus/rules_shift_down_bonus.c
 
 OBJS = $(FILES:.c=.o)

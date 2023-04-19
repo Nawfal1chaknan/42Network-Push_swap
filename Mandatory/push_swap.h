@@ -6,17 +6,14 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:56:56 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/13 22:40:25 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:13:51 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include<stdio.h>
 # include<stdlib.h>
-# include<string.h>
-# include<unistd.h>
 # include "../ft_printf/ft_printf.h"
 
 typedef struct list
@@ -33,6 +30,7 @@ int		num_of_args(int ac, char **str);
 void	print_error(t_mylist *stack);
 void	fill_stack(t_mylist *stack, int ac, char **av);
 void	check_input(t_mylist *stack, int ac, char **data);
+void	check_min_max(t_mylist *stack, char *data);
 int		check_max(char *str);
 void	check_if_double(t_mylist *list, int *arr);
 int		check_if_sorted(t_mylist *list, int *array);
@@ -43,8 +41,10 @@ void	little_sort(t_mylist *stack);
 void	range(t_mylist *stack, int range);
 
 // Libft :
+void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlen(const char *s);
 long	ft_atoi(char *str);
+char	*ft_itoa(int n);
 int		ft_isdigit(int n);
 char	**ft_split(const char *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

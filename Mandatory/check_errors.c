@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 22:00:45 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/11 22:17:06 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:41:27 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,12 @@ void	check_if_only_digit(t_mylist *stack, int ac, char **data)
 	}
 }
 
-void	check_min_max(t_mylist *stack, int ac, char **data)
+void	check_min_max(t_mylist *stack, char *data)
 {
-	int	j;
-
-	j = 1;
-	while (j < ac)
-	{
-		if (check_max(data[j]) > 10)
-			print_error(stack);
-		if (ft_atoi(data[j]) > 2147483647 || ft_atoi(data[j]) < -2147483648)
-			print_error(stack);
-		j++;
-	}
+	if (check_max(data) > 10)
+		print_error(stack);
+	if (ft_atoi(data) > 2147483647 || ft_atoi(data) < -2147483648)
+		print_error(stack);
 }
 
 void	check_if_double(t_mylist *stack, int *arr)
@@ -99,5 +92,4 @@ void	check_input(t_mylist *stack, int ac, char **data)
 {
 	check_if_empty(stack, ac, data);
 	check_if_only_digit(stack, ac, data);
-	check_min_max(stack, ac, data);
 }

@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 22:26:27 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/11 21:45:44 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:17:48 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ size_t	ft_strlen(const char *s)
 	while (s && s[i] != '\0')
 		i++;
 	return (i);
+}
+
+int	ft_isdigit(int n)
+{
+	if (n >= '0' && n <= '9')
+		return (1);
+	else
+		return (0);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -42,21 +50,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	sub[i] = '\0';
 	return (sub);
-}
-
-void	*ft_memset(void *b, int c, size_t len)
-{
-	unsigned char	*str;
-	size_t			i;
-
-	str = b;
-	i = 0;
-	while (i < len)
-	{
-		str[i] = (unsigned char)c;
-		i++;
-	}
-	return (str);
 }
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)

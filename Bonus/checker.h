@@ -6,17 +6,14 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 22:06:53 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/12 18:17:22 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:21:39 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 
-# include<stdio.h>
 # include<stdlib.h>
-# include<string.h>
-# include<unistd.h>
 # include "../ft_printf/ft_printf.h"
 # include "./get_next_line/get_next_line.h"
 
@@ -32,12 +29,14 @@ int		num_of_args(int ac, char **str);
 void	print_error(t_bonuslist *stack);
 void	fill_stack(t_bonuslist *stack, int ac, char **av);
 void	check_input(t_bonuslist *stack, int ac, char **data);
+void	check_min_max(t_bonuslist *stack, char *data);
 int		check_max(char *str);
 void	check_if_double(t_bonuslist *list, int *arr);
 int		check_if_sorted(t_bonuslist *list, int *array);
 void	apply_rule(t_bonuslist	*stack, char *str);
 
 // Libft :
+void	*ft_calloc(size_t count, size_t size);
 long	ft_atoi(char *str);
 int		ft_isdigit(int n);
 char	**ft_split(const char *s, char c);

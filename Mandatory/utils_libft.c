@@ -6,17 +6,43 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:54:40 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/08 18:31:25 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:18:07 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*str;
+	size_t			i;
+
+	str = s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = (unsigned char) '\0';
+		i++;
+	}
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*p;
+
+	p = (void *)malloc(count * size);
+	if (!p)
+		return (NULL);
+	else
+		ft_bzero(p, (count * size));
+	return (p);
+}
+
 long	ft_atoi(char *str)
 {
-	long	res;
-	int		sign;
-	int		i;
+	long		res;
+	int			sign;
+	int			i;
 
 	res = 0;
 	sign = 1;
@@ -35,14 +61,6 @@ long	ft_atoi(char *str)
 		i++;
 	}
 	return (res * sign);
-}
-
-int	ft_isdigit(int n)
-{
-	if (n >= '0' && n <= '9')
-		return (1);
-	else
-		return (0);
 }
 
 static int	words_counter(const char *str, char c)
@@ -70,10 +88,10 @@ static int	words_counter(const char *str, char c)
 
 char	**ft_split(const char *s, char c)
 {
-	char	**split;
-	int		start;
-	int		i;
-	int		j;
+	char		**split;
+	int			start;
+	int			i;
+	int			j;
 
 	split = malloc((words_counter(s, c) + 1) * sizeof(char *));
 	if (!split || !s)

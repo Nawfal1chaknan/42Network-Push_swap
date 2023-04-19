@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:36:08 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/12 18:14:37 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:16:29 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		exit(0);
-	stack.a = malloc(sizeof(int) * num_of_args(ac, av));
-	stack.b = malloc(sizeof(int) * num_of_args(ac, av));
-	stack.tmp = malloc(sizeof(int) * num_of_args(ac, av));
-	ft_memset(stack.a, 0, sizeof(int) * num_of_args(ac, av));
-	ft_memset(stack.b, 0, sizeof(int) * num_of_args(ac, av));
-	ft_memset(stack.tmp, 0, sizeof(int) * num_of_args(ac, av));
+	stack.a = calloc(num_of_args(ac, av), sizeof(int));
+	stack.b = calloc(num_of_args(ac, av), sizeof(int));
+	stack.tmp = calloc(num_of_args(ac, av), sizeof(int));
 	fill_stack(&stack, ac, av);
 	if (stack.end_a > 100)
 		range(&stack, 35);

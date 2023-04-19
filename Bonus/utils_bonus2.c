@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_swap_bonus.c                                 :+:      :+:    :+:   */
+/*   utils_bonus2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 11:17:22 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/11 21:10:40 by nchaknan         ###   ########.fr       */
+/*   Created: 2023/04/19 20:19:59 by nchaknan          #+#    #+#             */
+/*   Updated: 2023/04/19 20:26:07 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	sa(t_bonuslist *stack)
+void	ft_bzero(void *s, size_t n)
 {
-	int	swap;
+	unsigned char	*str;
+	size_t			i;
 
-	if (stack->end_a > 0)
+	str = s;
+	i = 0;
+	while (i < n)
 	{
-		swap = stack->a[0];
-		stack->a[0] = stack->a[1];
-		stack->a[1] = swap;
+		str[i] = (unsigned char) '\0';
+		i++;
 	}
 }
 
-void	sb(t_bonuslist *stack)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int	swap;
+	void	*p;
 
-	if (stack->end_b > 0)
-	{
-		swap = stack->b[0];
-		stack->b[0] = stack->b[1];
-		stack->b[1] = swap;
-	}
-}
-
-void	ss(t_bonuslist *stack)
-{
-	sa(stack);
-	sb(stack);
+	p = (void *)malloc(count * size);
+	if (!p)
+		return (0);
+	else
+		ft_bzero(p, (count * size));
+	return (p);
 }

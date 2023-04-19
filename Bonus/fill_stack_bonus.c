@@ -6,7 +6,7 @@
 /*   By: nchaknan <nchaknan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 22:17:11 by nchaknan          #+#    #+#             */
-/*   Updated: 2023/04/12 18:11:56 by nchaknan         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:53:43 by nchaknan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	fill_stack(t_bonuslist *stack, int ac, char **av)
 		while (split[++s])
 		{
 			stack->a[++stack->end_a] = ft_atoi(split[s]);
+			check_min_max(stack, split[s]);
 		}
 		i++;
 		free_split(split);
